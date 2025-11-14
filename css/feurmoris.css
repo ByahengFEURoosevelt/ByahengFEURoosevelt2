@@ -1,0 +1,1553 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
+@import url('https://fonts.cdnfonts.com/css/tc-chaddlewood');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+@import url('css/sections/hero.css');
+
+/* CSS variables for reusablity across all files (including above imported) */
+:root { 
+  --main-textfont-heads: "Montserrat", sans-serif;
+  --subhead: "Schoolbell", cursive;
+  --parahraphfont: "IM Fell Great Primer", serif;
+  --fer: "TC Chaddlewood", cursive;
+
+  --primary-color: #09893c;
+  --secondary-color: #ffbb06;
+
+  --accent-color: #fcecc3;
+  --accent-color2: #fcc96b;
+  --accent-color3: #064e1f;
+  --black-500: #555555;
+  --gray-100: #888888;
+
+  --color-white: #fff;
+  --color-creamson: #fff0de;
+}
+
+/* Back to Home Button */
+.back-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #000000;
+    color: var(--color-white);
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: var(--main-textfont-heads);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-home-btn:hover {
+    background: var(--accent-color3);
+    transform: translateX(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.back-home-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+}
+
+.loading-logo {
+    animation: fadeInScale 1.5s ease-in-out;
+}
+
+.loading-logo img {
+    max-width: 1000px;
+    width: 90%;
+    height: auto;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .loading-logo img {
+        max-width: 300px;
+    }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background-color:#252525;
+}
+
+.hero{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the screen */
+  object-position: center; /* keeps main subject centered */
+  display: flex;
+  max-width: 100%;
+}
+.hero img{
+    display: flex;
+    flex-direction: column;
+    padding:0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+
+/*--- NAV BAR --- */
+.film-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/feurmoris-navimg.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* keep blur inside */
+}
+
+/* Blur overlay (placed behind everything) */
+.film-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit; /* same background image */
+    filter: blur(8px); /* adjust blur intensity */
+    transform: scale(1.05); /* avoid edge clipping */
+    z-index: 0;
+}
+
+/* Top film strip */
+.film-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0 40px,
+        black 40px 80px
+    );
+    background-color: black;
+    z-index: 2;
+}
+
+/* Bottom film strip (new element) */
+.film-header .bottom-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0 40px,
+        black 40px 80px
+    );
+    background-color: black;
+    z-index: 2;
+}
+
+/* Keep content (navbar/text) above blur */
+.film-header * {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    font-size: 2.4vh;
+    font-family: var(--main-textfont-heads);
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #cccccc;
+}
+
+@media (max-width: 768px) {
+    .back-home-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .back-home-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-home-btn span {
+        display: none;
+    }
+    
+    .back-home-btn {
+        padding: 10px;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .navbar ul {
+    gap: 2rem;
+  }
+
+  .navbar a {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .film-header {
+    height: 80vh;
+    background-position: center;
+  }
+
+  .film-header::before,
+  .film-header::after {
+    height: 80px;
+  }
+}
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .navbar ul {
+    gap: 2rem;
+  }
+
+  .navbar a {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .film-header {
+    height: 80vh;
+    background-position: center;
+  }
+
+  .film-header::before,
+  .film-header::after {
+    height: 80px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+  }
+
+  .film-header {
+    height: 70vh;
+    background-size: cover;
+  }
+
+  .film-header::before,
+  .film-header::after {
+    height: 60px;
+  }
+
+  .hero img {
+    height: auto;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .navbar ul {
+    gap: 0.8rem;
+  }
+
+  .navbar a {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .film-header {
+    height: 60vh;
+  }
+
+  .film-header::before,
+  .film-header::after {
+    height: 50px;
+  }
+}
+
+/*About P1 */
+.about{
+   display: flex;
+  flex-direction: column;   /* stack h1 and h3 vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: flex-start; /* push to top */
+  height: 150vh;
+  text-align: center;
+  padding-top: 50px; /* optional spacing from top */
+
+
+  background-image: url('../images/feuraboutbg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* shows the whole image without cutting */
+  background-color:#252525; /* optional fill color around the image */
+
+}
+.aboutcontent{
+  padding-top: 7vh;
+  display: flex;
+  justify-content: center; /* centers the pair horizontally */
+  align-items: center;     /* vertically aligns image and text */
+  gap: 10px;               /* space between image and text */
+  margin:20px;        /* space below h3 */
+
+}
+
+.text1wheader{
+  width: 600px;
+  height: 300px;
+  
+  color: var(--color-white);
+  text-align: left;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+}
+
+.text1wheader h1{
+  color: var(--color-white);
+  font-size: 80px;
+  font-family: var(--fer);
+  letter-spacing: 10px;
+}
+.text1wheader p{
+  padding-top: 60px;
+  color: var(--color-white);
+  font-size: 24px;
+  font-family: var(--main-textfont-heads);
+
+}
+.img1abt{
+  width: 600px;
+  height: 400px;
+  
+
+}
+
+
+.text2{
+  width: 600px;
+  height: 300px;
+  
+  color: var(--color-white);
+  text-align: right;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+}
+
+.text2 p{
+  padding-top: 30px;
+  color: var(--color-white);
+  font-size: 24px;
+  font-family: var(--main-textfont-heads);
+}
+.img2abt{
+  width: 600px;
+  height: 500px;
+  
+
+}
+
+
+
+/* ABOuT! P2*/
+.about1 {
+  display: flex;
+  flex-direction: column;   /* stack h1 and h3 vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: flex-start; /* push to top */
+  height: 180vh;
+  text-align: center;
+  padding-top: 50px; /* optional spacing from top */
+
+
+  background-image: url('../images/feurabout2bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: fill; /* shows the whole image without cutting */
+  background-color:#252525; /* optional fill color around the image */
+}
+
+.about-content {
+  padding-top: 7vh;
+  display: flex;
+  justify-content: center; /* centers the pair horizontally */
+  align-items: center;     /* vertically aligns image and text */
+  gap: 10px;               /* space between image and text */
+  margin:20px;        /* space below h3 */
+}
+
+.about1 h1 {
+  padding-top: 10vh;
+  font-size: 50px;
+  font-family: var(--main-textfont-heads);
+  text-decoration: none;
+  color: var(--color-white);
+  margin: 0; /* removes default browser margin */
+}
+
+.about1 h3 {
+  font-size: 20px;
+  font-family: var(--main-textfont-heads);
+  text-decoration: none;
+  color: var(--color-white);
+  margin-top: 10px; /* small space between h1 and h3 */
+}
+.imgabt1 {
+  width: 400px;
+  height: 300px;
+}
+
+.descabt1 p{
+  color: var(--color-white);
+  font-size: 20px;
+  font-family: var(--main-textfont-heads);
+}
+
+.descabt1 {
+  width: 800px;
+  height: 300px;
+  
+  color: var(--color-white);
+  text-align: left;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+}
+
+.imgabt2 {
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.descabt2 {
+  width: 800px;
+  height: 300px;
+  color: var(--color-white);
+  text-align: left;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+}
+
+.descabt2 p{
+  color: var(--color-white);
+  font-size: 20px;
+  font-family: var(--main-textfont-heads);
+}
+
+/* =======================
+   RESPONSIVE DESIGN
+   FOR ABOUT SECTIONS
+======================= */
+
+/* 📱 Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .about,
+  .about1 {
+    height: auto;
+    padding: 40px 20px;
+    background-size: cover; /* more natural scaling */
+  }
+
+  .aboutcontent,
+  .about-content {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .text1wheader,
+  .text2,
+  .descabt1,
+  .descabt2 {
+    width: 90%;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .text1wheader h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
+  }
+
+  .text1wheader p,
+  .text2 p,
+  .descabt1 p,
+  .descabt2 p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .img1abt,
+  .img2abt,
+  .imgabt1,
+  .imgabt2 {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* 📱 Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .about,
+  .about1 {
+    height: auto;
+    padding: 30px 10px;
+  }
+
+  .text1wheader h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+
+  .text1wheader p,
+  .text2 p,
+  .descabt1 p,
+  .descabt2 p {
+    font-size: 16px;
+  }
+
+  .aboutcontent,
+  .about-content {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .img1abt,
+  .img2abt,
+  .imgabt1,
+  .imgabt2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .descabt1,
+  .descabt2 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* 📱 Extra small (max-width: 480px) */
+@media (max-width: 480px) {
+  .text1wheader h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .text1wheader p,
+  .text2 p,
+  .descabt1 p,
+  .descabt2 p {
+    font-size: 14px;
+  }
+
+  .aboutcontent,
+  .about-content {
+    gap: 20px;
+  }
+
+  .img1abt,
+  .img2abt,
+  .imgabt1,
+  .imgabt2 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+/*Instagram Tab */ 
+.instamain{
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: flex-start; 
+  min-height: 100vh; /* allows it to grow */
+  height: auto;
+  text-align: center;
+  padding-top: 50px;
+  background-size: fill; 
+  background-image: radial-gradient(circle closest-corner, rgb(51, 49, 49), rgb(0, 0, 0));
+}
+
+.instaheadcontent {
+  width: 1200px;
+  height: 200px;
+  object-fit: fill;
+  border-radius: 50px 50px 0px 0px;
+  display: flex;               
+  align-items: center;         
+  justify-content: flex-start; 
+  gap: 20px;                   
+  position: relative;
+  padding-left: 50px;
+  background-color: black;
+}
+
+.instaicon {
+  width: 150px;
+  height: 150px;
+
+}
+
+.instaheader {
+  width: 1000px;
+  height: 100px;
+  
+}
+
+.instaheader h1{
+  padding-top: 20px;
+  color:var(--color-white);
+  font-size: 35px;
+  font-family: var(--main-textfont-heads);
+  letter-spacing: 10px;
+}
+.instaheader p{
+  padding-top: 10px;
+  color:var(--color-white);
+  font-size: 15px;
+  font-family: var(--main-textfont-heads);
+}
+
+.instacontent2{
+  width: 1200px;
+  height: 550px;
+  display: flex;               
+  align-items: center;  
+  align-content: space-evenly;     
+  justify-content: center;
+  border-radius: 0px 0px 50px 50px;
+  background-color: #fff;
+}
+
+.instap{
+  width: 1200px;
+  min-height: 550px;   /* keeps the box tall enough, but allows it to expand */
+  height: auto;        /* grows naturally with content */
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: justify;
+  border-radius: 0px 0px 50px 50px;
+  padding: 10px;       /* keeps text from touching edges */
+  box-sizing: border-box;
+  font-size: 19px;
+  font-family: var(--main-textfont-heads);
+  font-weight: 550;
+}
+
+.instap p {
+  margin-bottom: 20px;  
+  line-height: 2;     
+}
+@media (max-width: 768px) {
+  .instamain {
+    height: auto !important;
+    min-height: 100vh; 
+    margin-bottom: 50px; 
+  }
+
+  .newsletter {
+    margin-top: 20px;
+  }
+}
+/* 📱 Tablet and below */
+@media (max-width: 1024px) {
+  .instaheadcontent,
+  .instacontent2 {
+    width: 90%;
+  }
+
+  .instaheader h1 {
+    font-size: 28px;
+    letter-spacing: 5px;
+  }
+
+  .instaheader p {
+    font-size: 14px;
+  }
+
+  .instap {
+    width: 90%;
+    font-size: 17px;
+  }
+}
+
+/* 📱 Mobile screens */
+@media (max-width: 768px) {
+  .instaheadcontent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .instaicon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .instaheader {
+    width: 100%;
+    height: auto;
+  }
+
+  .instaheader h1 {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .instaheader p {
+    font-size: 13px;
+  }
+
+  .instacontent2 {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .instap {
+    width: 95%;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+
+/* 📱 Small phones */
+@media (max-width: 480px) {
+  .instaheader h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .instaheader p {
+    font-size: 12px;
+  }
+
+  .instap {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+
+/*NEWS LETTER*/
+
+.newsletter{
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: center; 
+  height: 50vh;
+  text-align: center;
+  background-size: fill; 
+  background-image: radial-gradient(circle closest-corner, rgb(32, 31, 31), rgb(0, 0, 0));
+}
+.newsletter-content h1{
+
+  color: white;
+  font-size: 30px;
+  font-family: var(--main-textfont-heads);
+  letter-spacing: 5px;
+}
+
+.newsletter-content p{
+  padding-top: 10px;
+  color: white;
+  font-size: 12px;
+  font-family: var(--main-textfont-heads);
+  letter-spacing: 2px;
+}
+@media (max-width: 1024px) {
+  .newsletter {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .newsletter-content h1 {
+    font-size: 26px;
+  }
+
+  .newsletter-content p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    height: auto;
+    padding: 30px 15px;
+  }
+
+  .newsletter-content h1 {
+    font-size: 22px;
+  }
+
+  .newsletter-content p {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter {
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  .newsletter-content h1 {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .newsletter-content p {
+    font-size: 9px;
+  }
+}
+
+/*Students */
+.students {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap; /* makes it responsive */
+  
+}
+
+/* LEFT IMAGE STRIP */
+.student-imagestripleft {
+  flex: 1;
+  height: auto; /* prevents overlap */
+  max-width: 400px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+   background-image: url('../images/studentstrips-fm.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: fill; /* shows the whole image without cutting */
+  background-color:#000000; /* optional fill color around the image */
+}
+
+
+.student-imagestripleft img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* RIGHT CONTENT BOX */
+.studentcontents {
+  flex: 2;
+  height: auto; /* prevents overlap */
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  
+
+  background-image: url('../images/studentbg-fm.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100% ; /* shows the whole image without cutting */
+  background-color:#252525; /* optional fill color around the image */
+
+  
+}
+
+/* TITLE AT THE TOP RIGHT */
+.studentcontent1 .title {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100px;
+  color:var(--color-white);
+  text-align: right;
+  font-size: 16px;
+  font-family: var(--main-textfont-heads);
+  
+}
+
+.studentcontent1 .p1 p {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 180px;
+  width: 100%;
+  
+  text-align: justify;
+  color:var(--color-white);
+  font-size: 15px;
+  font-family: var(--main-textfont-heads);
+  padding:80px;
+}
+
+/* IMAGE + PARAGRAPH SIDE BY SIDE */
+.studentcontent2,
+.studentcontent3 {
+
+  height: 300px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  
+
+  text-align: justify;
+  color:var(--color-white);
+  font-size: 15px;
+  font-family: var(--main-textfont-heads);
+  padding:80px;
+  
+}
+
+/* FIRST: IMAGE LEFT, TEXT RIGHT */
+.studentcontent2 .imgstudent1 img {
+  height: 350px;
+  width: 400px;
+  
+  
+}
+
+/* SECOND: TEXT LEFT, IMAGE RIGHT (REVERSED) */
+.studentcontent3 {
+  height: 300px;
+  flex-direction: row-reverse;
+  
+}
+
+.studentcontent3 .imgstudent2 img {
+  height: 350px;
+  width: 400px;
+  
+}
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .students {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .student-imagestripleft,
+  .studentcontents {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .studentcontent1 .p1 p,
+  .studentcontent2,
+  .studentcontent3 {
+    padding: 40px;
+  }
+
+  .studentcontent2 .imgstudent1 img,
+  .studentcontent3 .imgstudent2 img {
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .studentcontent2,
+  .studentcontent3 {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .studentcontent1 .p1 p {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .studentcontent2 .imgstudent1 img,
+  .studentcontent3 .imgstudent2 img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .studentcontent1 .title {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .studentcontent1 .p1 p {
+    font-size: 13px;
+    padding: 15px;
+  }
+
+  .studentcontent2,
+  .studentcontent3 {
+    padding: 15px;
+  }
+}
+/* ===== Robust responsive overrides (paste at bottom of file) ===== */
+@media (max-width: 1024px) {
+  /* make the container flow vertically on narrower screens */
+  .students {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  /* allow both columns to shrink and not force overflow */
+  .student-imagestripleft,
+  .studentcontents {
+    height: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important; /* override any min-width forcing overflow */
+    box-sizing: border-box !important;
+  }
+}
+
+/* tablet / phone */
+@media (max-width: 768px) {
+  /* Remove fixed heights on internal blocks so they expand naturally */
+  .studentcontent1 .title,
+  .studentcontent1 .p1 p,
+  .studentcontent2,
+  .studentcontent3 {
+    height: auto !important;
+    padding: 20px !important;
+  }
+
+  /* Stack image + text vertically and center them */
+  .studentcontent2,
+  .studentcontent3 {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  /* Make images responsive and not taller than their container */
+  .studentcontent2 .imgstudent1 img,
+  .studentcontent3 .imgstudent2 img,
+  .student-imagestripleft img,
+  img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* spacing between stacked sections */
+  .studentcontents > div,
+  .student-imagestripleft,
+  .studentcontents {
+    margin-bottom: 24px !important;
+  }
+
+  /* if any element was absolutely positioned above/below, ensure normal flow */
+  .studentcontents * {
+    position: relative !important;
+    z-index: auto !important;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 480px) {
+  .studentcontent1 .title { font-size: 14px !important; text-align: center !important; }
+  .studentcontent1 .p1 p { font-size: 13px !important; padding: 12px !important; }
+  .studentcontent2, .studentcontent3 { padding: 12px !important; gap: 12px !important; }
+}
+
+
+/* Professor Article */
+.professor {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap; /* makes it responsive */
+  background-color: #111; /* optional: just so you can see contrast */
+}
+
+.professor-imagestripleft {
+  width: 400px; /* add px */
+  height: auto;
+  max-height: 900px;
+  background-color: #000000; /* add color to make it visible */
+
+  background-image:url('../images/profstrip-fm.png');
+}
+
+.professorcontents {
+  width: 1200px;
+  height: auto;
+  
+  background-image:url('../images/studentbg-fm.png');
+
+  flex: 2;
+  height: auto; /* prevents overlap */
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+.professorcontents {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex: 1; 
+  min-width: 60%;
+  height: 100%; 
+  
+  
+  
+  /* Key: Set to display as a row for side-by-side layout */
+  display: flex; 
+  flex-direction: row; 
+  padding-right: 100px; 
+  gap: 30px; 
+}
+
+.professorimg {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 400px; 
+  height: 600px;
+  margin-right: 100px;
+}
+.professorimg img {
+  width: 100%;
+  max-height: 85%;
+  object-fit: cover;
+  
+}
+.professorimg h1 {
+  margin-bottom: 10px;
+  font-family: var(--fer);
+  color: white;
+  letter-spacing: 4px;
+  
+}
+
+.professorinfo-title {
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  
+  padding: 30px; 
+  height: 600px;
+}
+.professorinfo-title .p1{
+  
+  color:#fff;
+  text-align: center;
+  font-size: px;
+  font-family: var(--main-textfont-heads);
+}
+
+.professorinfo-title h3{
+  color:#fff;
+  text-align: center;
+  font-size: px;
+  font-family: var(--main-textfont-heads);
+  padding-bottom: 70px;
+}
+.para p{
+  /* Separator between title and paragraph */
+  padding-top: 20px;
+  color:#fff;
+  text-align: justify;
+  font-size: px;
+  font-family: var(--main-textfont-heads);
+}
+
+/* Optional: To make the image inside .professorimg fill its container (if you move it back) */
+.professorimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* 📌 Responsive Styling */
+/* ============================= */
+
+/* Large Tablets - stack content columns more neatly */
+@media (max-width: 1200px) {
+  .professor {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .professor-imagestripleft {
+    width: 250px;
+  }
+
+  .professorcontents {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .professorimg, 
+  .professorinfo-title {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .professorimg img {
+    height: auto;
+    max-height: 450px;
+  }
+
+  .professorinfo-title {
+    text-align: center;
+  }
+}
+
+/* Tablets and below */
+@media (max-width: 768px) {
+
+  .professor-imagestripleft {
+    display: none; /* hides strip on small screens to save space */
+  }
+
+  .professorinfo-title h3,
+  .professorinfo-title .p1,
+  .para p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .professor {
+    padding: 20px;
+  }
+
+  .professorimg img {
+    max-height: 350px;
+  }
+
+  .professorinfo-title {
+    padding: 10px;
+  }
+
+  .professorinfo-title h3 {
+    font-size: 18px;
+    padding-bottom: 40px;
+  }
+
+  .para p {
+    font-size: 14px;
+  }
+}
+
+
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
+                url('../images/contact_us_bg.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 100px;
+    color: #fff;
+}
+
+/* Contact Us */
+.contact-content {
+    max-width: 600px;
+    margin-left: 50px;
+}
+
+.contact-title {
+    font-size: 4.5rem;
+    font-weight: 300;
+    font-family: var(--fer);
+    margin-bottom: 60px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.contact-info {
+    margin-bottom: 100px;
+    line-height: 2;
+}
+
+.contact-info p {
+    font-family: 'Poppins';
+    font-size: 1.15rem;
+    margin: 8px 0;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.contact-info strong {
+    font-weight: bold;
+}
+
+.contact-info a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-info a:hover {
+    opacity: 0.7;
+}
+
+.follow-section {
+    max-width: 550px;
+}
+
+.follow-section p {
+    font-family: 'Poppins';
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.follow-section strong {
+    font-weight: bold;
+}
+/* ============================= */
+/* 📱 Responsive Contact Section */
+/* ============================= */
+
+/* Tablets (landscape + portrait) */
+@media (max-width: 992px) {
+    .contact-section {
+        padding: 60px 50px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-content {
+        margin-left: 0;
+        max-width: 90%;
+    }
+
+    .contact-title {
+        font-size: 3.2rem;
+    }
+
+    .contact-info {
+        margin-bottom: 60px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .contact-info p,
+    .follow-section p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-bottom: 40px;
+        line-height: 1.8;
+
+    }
+
+  }
+@media (max-width: 768px) {
+    .contact-section {
+        padding:0;
+    }
+
+    .contact-title {
+        font-size: 3rem;
+    }
+
+    .contact-info {
+        margin-bottom: 60px;
+    }
+
+    .contact-info p,
+    .follow-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-section {
+        padding: 40px 20px;
+    }
+}
+
+.partnership-main {
+  font-family: var(--fer);
+  background: url('../images/feurabout2bg.png') center/cover no-repeat;
+  padding: 80px 5%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.partnership-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay to improve contrast */
+  z-index: 0;
+}
+
+.partnership-main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  letter-spacing: 10px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Partner images container */
+.partnerimages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Partner image boxes */
+.partnerimg1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partnerimg1:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.partnerimg1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .partnerimg1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .partnership-main h1 {
+    font-size: 2rem;
+  }
+
+  .partnerimages {
+    gap: 20px;
+  }
+}

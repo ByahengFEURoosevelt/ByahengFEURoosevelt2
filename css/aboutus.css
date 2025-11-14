@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
+@import url('https://fonts.cdnfonts.com/css/tc-chaddlewood');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+@import url('css/sections/hero.css');
+
+/* CSS variables for reusablity across all files (including above imported) */
+:root { 
+  --main-textfont-heads: "Montserrat", sans-serif;
+  --subhead: "Schoolbell", cursive;
+  --parahraphfont: "IM Fell Great Primer", serif;
+  --fer: "TC Chaddlewood", cursive;
+
+  --primary-color: #09893c;
+  --secondary-color: #ffbb06;
+
+  --accent-color: #fcecc3;
+  --accent-color2: #fcc96b;
+  --accent-color3: #064e1f;
+  --black-500: #555555;
+  --gray-100: #888888;
+
+  --color-white: #fff;
+  --color-creamson: #fff0de;
+}
+body{
+  background-color: var(--secondary-color);
+}
+
+/* Fade-in animation styles */
+.cartoonimage1,
+.cartoonimage2,
+.actualimage1,
+.actualimage2,
+.infoboard1,
+.infoboard2 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.loading-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border: 5px solid var(--accent-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .loading-logo {
+        width: 150px;
+    }
+    
+    .loading-spinner {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Header */
+.head-landing{
+    text-align: center;
+    font-size: large;
+    font-family: var(--subhead  );
+    padding: 2px;
+}
+.head-landing a{
+  text-decoration: none;
+  color:var(--primary-color);
+}
+
+/*Nav Bar*/
+
+.nav-bar{
+    text-align: center;
+    height: auto;
+}
+
+.nav-bar ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color:var(--primary-color);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.nav-bar a{
+    font-family: var(--parahraphfont);
+    color:var(--accent-color);
+    text-decoration: none;
+    background-color:var(--primary-color);
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+
+
+.nav-bar a:hover{
+    background-color:var(--accent-color3);
+
+}
+/* For tablets (width ≤ 768px) */
+@media (max-width: 768px) {
+  .head-landing {
+    font-size: medium;
+    padding: 15px;
+  }
+
+  .nav-bar ul {
+    flex-wrap: wrap;
+  }
+
+  .nav-bar a {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* For small screens / mobile (width ≤ 480px) */
+@media (max-width: 480px) {
+  .head-landing {
+    font-size: small;
+    padding: 10px;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar li {
+    float: none;
+    width: 100%;
+  }
+
+  .nav-bar a {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+
+.aboutus {
+  display: flex;
+  flex-direction: row;      /* place them side by side */
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* align vertically */
+  gap: 10px;                /* space between boxes */
+  flex-wrap: wrap;          /* allows wrapping on smaller screens */
+  width: 100%;           /* ensure it takes full width */
+  min-height: 300px;        /* optional: gives section height */
+  padding: 40px 0;          /* spacing above and below */
+  background-image: url('../images/School.png');
+  
+}
+
+/* Box styling */
+.cartoonimage1, .cartoonimage2 {
+  
+  width: 300px;
+  height: 400px;
+  display: flex;            /* centers any <img> inside */
+  justify-content: center;
+  align-items: center;
+  
+}
+.actualimage1, .actualimage2 {
+  width: 250px;
+  height: 300px;
+  background-color: var(--primary-color); /* white card */
+  border-radius: 15px;                  /* rounded corners */
+  box-shadow: 0 4px 10px var(--secondary-color); /* soft shadow */
+  overflow: hidden;                     /* keeps images inside rounded edges */
+  display: flex;
+  flex-direction: column;               /* allows text below image */
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border: 4px solid var(--secondary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image inside card */
+.actualimage1 img,
+.actualimage2 img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover; /* crop nicely */
+  border-bottom: 4px solid var(--secondary-color);
+}
+
+/* Optional: text below the image */
+.actualimage1 p,
+.actualimage2 p {
+  font-family: var(--parahraphfont);
+  font-size: 1rem;
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 10px;
+}
+.actualimage1 p b,
+.actualimage2 p b{
+  font-family: var(--main-textfont-heads);
+  font-size: .88rem;
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 10px;
+}
+/* Hover effect for interactivity */
+.actualimage1:hover,
+.actualimage2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ✅ Responsive Design */
+
+/* For tablets and medium screens */
+@media (max-width: 992px) {
+  .aboutus {
+    flex-direction: row; /* keep side by side until smaller screens */
+    gap: 20px;
+    padding: 30px 0;
+  }
+
+  .cartoonimage1, .cartoonimage2 {
+    width: 250px;
+    height: 350px;
+  }
+
+  .actualimage1, .actualimage2 {
+    width: 220px;
+    height: 280px;
+  }
+
+  .actualimage1 p,
+  .actualimage2 p {
+    font-size: 0.9rem;
+  }
+}
+
+/* For mobile devices (portrait phones) */
+@media (max-width: 600px) {
+  .aboutus {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .cartoonimage1, .cartoonimage2 {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .actualimage1, .actualimage2 {
+    width: 90%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .actualimage1 img,
+  .actualimage2 img {
+    height: auto;
+  }
+
+  .actualimage1 p,
+  .actualimage2 p {
+    font-size: 0.85rem;
+  }
+}
+
+/* For very small screens (below 400px) */
+@media (max-width: 400px) {
+  .aboutus {
+    padding: 15px 0;
+  }
+
+  .actualimage1, .actualimage2 {
+    width: 95%;
+  }
+
+  .actualimage1 p,
+  .actualimage2 p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Info Section Styling - FINAL VERSION */
+.infos {
+    background: var(--primary-color);
+    padding: 50px 20px;
+    border-left: 20px solid rgb(236, 199, 150);
+    border-right: 20px solid rgb(122, 106, 85);
+    border-top: 10px solid rgb(236, 199, 150);
+    border-bottom: 10px solid rgb(177, 149, 112);
+}
+
+.infoboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.infoboard1,
+.infoboard2 {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.infoboard1 h1,
+.infoboard2 h1 {
+    color: var(--color-white);
+    font-family: var(--fer);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.infoboard1 p,
+.infoboard2 p {
+    color: var(--color-white);
+    font-family: var(--parahraphfont);
+    font-size: 1.1rem;
+    margin: 10px 0;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+    .infoboard {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .infoboard {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .infoboard1,
+    .infoboard2 {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+    
+    .infoboard1 h1,
+    .infoboard2 h1 {
+        font-size: 1.5rem;
+    }
+    
+    .infoboard1 p,
+    .infoboard2 p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .infos {
+        padding: 30px 15px;
+    }
+    
+    .infoboard1,
+    .infoboard2 {
+        padding: 25px 20px;
+    }
+    
+    .infoboard1 h1,
+    .infoboard2 h1 {
+        font-size: 1.3rem;
+    }
+}

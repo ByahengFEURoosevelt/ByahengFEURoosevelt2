@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="css/events.css">
+</head>
+<body>
+    
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Back to Home</span>
+    </a>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <img src="images/feur_logo.png" alt="FEUR Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1 class="heading">FEUR EVENTS</h1>
+            <h2>Eto ang pinaka na enjoy namin!</h2>
+
+            <nav class="nav-bar">
+                <button class="nav-item" onclick="scrollToEvent('event1')">College Orientation</button>
+                <button class="nav-item" onclick="scrollToEvent('event2')">Red Cross Seminar</button>
+                <button class="nav-item" onclick="scrollToEvent('event3')">Cybercrime Seminar</button>
+                <button class="nav-item" onclick="scrollToEvent('event4')">Sinag Tamaraw Concert 2025</button>
+                <button class="nav-item" onclick="scrollToEvent('event5')">Sinag Sports 2025</button>
+                <button class="nav-item" onclick="scrollToEvent('event6')">Mental Health Seminar</button>
+            </nav>
+
+            <!-- Event 1: College Orientation -->
+            <div class="event-page" id="event1">
+                <div class="event-content">
+                    <div class="event-text">
+                        <h3 class="event-title">College Orientation</h3>
+                        <p class="event-date">July 28, 2025</p>
+                        <p class="event-description">
+                            The College Orientation was an unforgettable experience that marked the beginning of our journey at FEUR. 
+                            It was a day filled with excitement, new faces, and the promise of great adventures ahead.
+                        </p>
+                        <p class="event-description">
+                            We were welcomed with open arms by the faculty and senior students who shared their experiences and 
+                            insights about college life. The energy was electric as we participated in ice-breaking activities 
+                            that helped us bond with our fellow freshmen.
+                        </p>
+                        <p class="event-description">
+                            From campus tours to inspirational talks, every moment was designed to help us feel at home. 
+                            This event set the tone for the amazing year we were about to have, filled with learning, 
+                            growth, and unforgettable memories.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                        <div class="image-large">
+                            <img src="images/college_orientation1.webp" alt="Image 1">
+                        </div>
+                        <div class="image-row-two">
+                            <img src="images/college_orientation2.webp" alt="Image 2">
+                            <img src="images/college_orientation3.webp" alt="Image 3">
+                        </div>
+                        <div class="image-large">
+                            <img src="images/college_orientation4.webp" alt="Image 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2: Red Cross CPR Training and Disaster Preparedness Seminar -->
+            <div class="event-page" id="event2">
+                <div class="event-content reverse">
+                    <div class="event-text">
+                        <h3 class="event-title">Red Cross CPR Training and Disaster Preparedness Seminar</h3>
+                        <p class="event-date">September 3, 2025</p>
+                        <p class="event-description">
+                            The Red Cross CPR training and Disaster Preparedness seminar held at FEU Roosevelt Cainta was an engaging and insightful experience for everyone involved. The seminar began with discussions led by Red Cross representatives who highlighted the importance of readiness and presence of mind during emergencies. They explained how preparedness can greatly reduce panic and damage during disasters like earthquakes, typhoons, and fires. The session also emphasized the role of individuals in promoting safety within their communities and the value of knowing basic life-saving techniques such as CPR.
+                            During the CPR training portion, participants learned how to perform Cardiopulmonary Resuscitation through a creative and resourceful approach—using water gallons as mannequins. Even without actual CPR dummies, the instructors demonstrated proper hand placement, compression depth, and rhythm, allowing everyone to simulate the procedure effectively. This improvisation made the activity both fun and educational, showing that life-saving skills can be practiced with available materials. The experience helped participants understand the importance of timing, pressure, and confidence when performing CPR in real-life situations.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                          <div class="image-row">
+                              <img src="images/CPR1.webp" alt="CPR 1st Batch">
+                              <img src="images/CPR2.webp" alt="CPR 2nd Batch">
+                          </div>
+                      </div>
+                </div>
+            </div>
+
+            <!-- Event 3: Cyber Crime and Anti-Hazing Seminar -->
+            <div class="event-page" id="event3">
+                <div class="event-content">
+                    <div class="event-text">
+                        <h3 class="event-title">Cyber Crime and Anti-Hazing Seminar</h3>
+                        <p class="event-date">September 24, 2025</p>
+                        <p class="event-description">
+                            The Cyber Crime and Anti-Hazing Seminar held at FEU Roosevelt Marikina Campus was an eye-opening and educational experience that emphasized the importance of awareness, responsibility, and safety both online and in real life. The speakers discussed various forms of cybercrime, such as online scams, identity theft, and cyberbullying, reminding students to protect their personal information and use technology wisely. They also explained the Cybercrime Prevention Act of 2012 and the Anti-Hazing Law (Republic Act No. 11053), highlighting the serious consequences of violating these laws. The seminar provided valuable lessons on respecting others, promoting safe digital practices, and rejecting any form of violence or coercion in organizations. Overall, the event encouraged students to be responsible digital citizens and advocates of a safe, respectful community.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                        <div class="image-large">
+                            <img src="images/cybercrime_group_photo.webp" alt="1st Image">
+                        </div>
+                        <div class="image-row-two">
+                            <img src="images/cybercrime1.webp" alt="2nd Image">
+                            <img src="images/cybercrime2.webp" alt="3rd Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4: Sinag Tamaraw Concert 2025 -->
+            <div class="event-page" id="event4">
+                <div class="event-content reverse">
+                    <div class="event-text">
+                        <h3 class="event-title">Sinag Tamaraw Concert 2025</h3>
+                        <p class="event-date">October 10, 2025</p>
+                        <p class="event-description">
+                            The Sinag Tamaraw Concert held at FEU Roosevelt Cainta was an exciting and memorable event that filled the campus with music, energy, and school spirit. Featuring performances by **Gracenote**, **Lola Amour**, and **Hey June!**, the concert brought students together for a night of fun and celebration. The crowd enthusiastically sang along to the bands’ popular songs, creating a lively and unforgettable atmosphere. Beyond the entertainment, the event fostered a sense of unity and pride among the Tamaraw community, giving everyone a chance to unwind and enjoy a shared experience. The Sinag Tamaraw Concert at FEU Roosevelt Cainta truly showcased the vibrant and youthful spirit of the students.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                        <div class="image-large">
+                            <img src="images/sinagtamsconcert_grouppic.webp" alt="Image 1">
+                        </div>
+                        <div class="image-row-two">
+                            <iframe width="250" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/gyIAxJwruNQ?si=4z4OrJMZdcNkmFEt" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen></iframe>
+                            
+                            <iframe width="250" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/aw6bImG14k0?si=gtz94BZtEKzOH1ld" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen></iframe>
+                        </div>
+                        <div class="image-large">
+                            <img src="images/sinagtamscconcert_ppop.webp" alt="Image 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 5: Sinag Sport 2025 -->
+            <div class="event-page" id="event5">
+                <div class="event-content">
+                    <div class="event-text">
+                        <h3 class="event-title">Sinag Sports 2025 & Cosplay Event</h3>
+                        <p class="event-date">October 28, 2025</p>
+                        <p class="event-description">
+                            The Sinag Sports 2025 and Cosplay Event at FEU Roosevelt was a vibrant celebration of talent, creativity, and school spirit that united students from both the Cainta and Marikina campuses.
+                            The sports events showcased the athletic skills, teamwork, and determination of the participants, fostering friendly competition and camaraderie among the Tamaraw community.
+                            Alongside the games, the Cosplay Event added color and excitement as students proudly portrayed their favorite characters with impressive costumes and performances.
+                            From the Marikina Campus, the winners were Columbina, Mitsuri Kanroji, and Ghostface, while from the Cainta Campus, Hysilens and Miyamoto Musashi claimed the top spots.
+                            The event was a lively blend of sportsmanship and creativity, highlighting the diverse talents of FEU Roosevelt students and strengthening the bond across campuses through fun, passion, and pride.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                        <div class="image-grid-four">
+                            <img src="images/sinagsports3.webp" alt="Image 1">
+                            <img src="images/sinagsports4.webp" alt="Image 2">
+                            <img src="images/cosplaywinnersmarikina.webp" alt="Image 3">
+                            <img src="images/cosplaywinnerscainta.webp" alt="Image 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Event 6: Mental Health Awareness Seminar -->
+            <div class="event-page" id="event6">
+                <div class="event-content reverse">
+                    <div class="event-text">
+                        <h3 class="event-title">Mental Health Awareness Seminar</h3>
+                        <p class="event-date">November 5, 2025</p>
+                        <p class="event-description">
+                            The Mental Health Awareness Seminar held at FEU Roosevelt Marikina Campus was an insightful and meaningful event that aimed to promote understanding, empathy, and self-care among students. The seminar featured discussions led by mental health advocates and professionals who emphasized the importance of emotional well-being, stress management, and seeking help when needed. Students learned about recognizing early signs of anxiety, depression, and burnout, as well as practical ways to maintain a healthy mindset despite academic and personal challenges. The event encouraged open conversations about mental health, breaking the stigma surrounding it and reminding everyone that it’s okay to ask for support. Overall, the seminar fostered a safe and supportive environment that inspired students to prioritize their mental wellness and look out for one another.
+                        </p>
+                    </div>
+                    <div class="event-images">
+                          <div class="image-row">
+                              <img src="images/mentalhealth1.webp" alt="Image 1">
+                              <img src="images/mentalhealth2.webp" alt="Image 2">
+                          </div>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+        <div class="feedback-section">
+            <div class="feedback-container">
+                <h3 class="feedback-title">How about you?</h3>
+                <p class="feedback-question">Did you enjoy the FEUR events? Rate your experience:</p>
+                
+                <div class="star-rating">
+                    <button class="star-btn" data-rating="1">★</button>
+                    <button class="star-btn" data-rating="2">★</button>
+                    <button class="star-btn" data-rating="3">★</button>
+                    <button class="star-btn" data-rating="4">★</button>
+                    <button class="star-btn" data-rating="5">★</button>
+                </div>
+                
+                <div class="feedback-message" id="feedbackMessage"></div>
+            </div>
+        </div>
+
+    <script src="js/events.js"></script>  
+</body>
+</html>

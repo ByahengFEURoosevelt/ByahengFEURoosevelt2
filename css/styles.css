@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
+
+
+@import url('css/sections/hero.css');
+
+/* CSS variables for reusablity across all files (including above imported) */
+:root { 
+  --main-textfont-heads: "Montserrat", sans-serif;
+  --subhead: "Schoolbell", cursive;
+  --parahraphfont: "IM Fell Great Primer", serif;
+
+  --primary-color: #09893c;
+  --secondary-color: #ffbb06;
+
+  --accent-color: #fcecc3;
+  --accent-color2: #fcc96b;
+  --accent-color3: #064e1f;
+  --black-500: #555555;
+  --gray-100: #888888;
+
+  --color-white: #fff;
+  --color-creamson: #fff0de;
+}
+
+/* Loading Screen Animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 0.5s ease-in-out 2.5s forwards;
+}
+
+.loading-logo {
+    width: 200px;
+    height: auto;
+    animation: logoAnimation 2s ease-in-out;
+}
+
+@keyframes logoAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body{
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.head-landing{
+    text-align: center;
+    font-size: large;
+    font-family: var(--subhead  );
+    color: var(--primary-color);
+    padding: 2px;
+}
+
+
+/*Nav Bar*/
+
+.nav-bar{
+    text-align: center;
+    height: auto;
+}
+
+.nav-bar ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color:var(--primary-color);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.nav-bar a{
+    font-family: var(--parahraphfont);
+    color:var(--accent-color);
+    text-decoration: none;
+    background-color:var(--primary-color);
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+
+
+.nav-bar a:hover{
+    background-color:var(--accent-color3);
+
+}
+/* For tablets (width ≤ 768px) */
+@media (max-width: 768px) {
+  .head-landing {
+    font-size: medium;
+    padding: 15px;
+  }
+
+  .nav-bar ul {
+    flex-wrap: wrap;
+  }
+
+  .nav-bar a {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* For small screens / mobile (width ≤ 480px) */
+@media (max-width: 480px) {
+  .head-landing {
+    font-size: small;
+    padding: 10px;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar li {
+    float: none;
+    width: 100%;
+  }
+
+  .nav-bar a {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Hero Section */
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  display: flex;
+  flex-direction: column; /* stacks image and text vertically */
+  align-items: center; /* centers both horizontally */
+  text-align: center; /* centers text */
+}
+
+.hero-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  min-height: 80vh; /* makes the hero section tall enough */
+}
+
+/* LEFT SIDE (Jeepney + Text) */
+.heroleft {
+  flex: 1;
+  text-align: center;
+  padding: 40px;
+}
+
+.heroleft-img img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.heroleft h2 {
+  font-family: var(--main-textfont-heads);
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-top: 20px;
+}
+
+/* RIGHT SIDE (School Image fills entire half) */
+.heroright {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  overflow: hidden;
+}
+
+.heroright h4 {
+  font-family: var(--main-textfont-heads);
+  margin-top: 1rem;
+  font-size: 1.1rem; 
+  color: var(--primary-color); 
+}
+
+.heroright-img {
+  display:block;
+
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+.heroright-img img {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;  
+}
+.hero a{
+  text-decoration: none;
+}
+.cssbuttons-io-button {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-family: var(--subhead);
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: var(--secondary-color);
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em --accent-color3;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: var(--primary-color);
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+
+/* ---------- RESPONSIVE SECTION ---------- */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  .heroleft h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .hero-div {
+    flex-direction: column;
+  }
+
+  .heroleft, .heroright {
+    flex: none;
+    width: 100%;
+  }
+
+  .heroright-img img {
+    object-fit: contain;
+    height: auto;
+  }
+
+  .heroleft h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+  .heroleft h2 {
+    font-size: 1.2rem;
+  }
+}
+
